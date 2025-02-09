@@ -139,13 +139,13 @@ public class MySqlUrlParser implements DatabaseUrlParser {
     private Map<String, String> extractProperties(String properties, String user, String password) {
         Map<String, String> propertiesMap = new HashMap<>();
 
-        if (user != null) propertiesMap.put("user", user);
-        if (password != null) propertiesMap.put("password", password);
+        if (user != null) propertiesMap.putIfAbsent("user", user);
+        if (password != null) propertiesMap.putIfAbsent("password", password);
         if (properties != null) {
             String[] propertiesArray = properties.split("&");
             for (String property : propertiesArray) {
                 String[] keyValue = property.split("=");
-                propertiesMap.put(keyValue[0], keyValue[1]);
+                propertiesMap.putIfAbsent(keyValue[0], keyValue[1]);
             }
         }
         return propertiesMap;

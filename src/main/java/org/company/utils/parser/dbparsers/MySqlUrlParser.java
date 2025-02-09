@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class MySqlUrlParser implements DatabaseUrlParser {
 
-    private final String MYSQL_GENERAL_PATTERN = "^jdbc:(.*)://(.*)/(.*)(\\?(.*))?$";
+    private final String MYSQL_GENERAL_PATTERN = "^jdbc:(.*)://(.*)/(.*)$";
 
     @Override
     public ConnectionConfig parseUrl(String url) {
